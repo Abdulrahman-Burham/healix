@@ -1,0 +1,755 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-healix-primary: #06b6d4;
+    --color-healix-secondary: #10b981;
+    --color-healix-accent: #8b5cf6;
+    --color-dark-bg: #0a0e1a;
+    --color-dark-surface: #0f1629;
+    --color-dark-card: #151d35;
+    --color-dark-border: #1e293b;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(6, 182, 212, 0.3) transparent;
+  }
+
+  *::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: rgba(6, 182, 212, 0.3);
+    border-radius: 3px;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: rgba(6, 182, 212, 0.5);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-dark-bg);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  [dir="rtl"] {
+    font-family: 'Tajawal', 'Inter', system-ui, sans-serif;
+  }
+
+  [dir="ltr"] {
+    font-family: 'Inter', 'Tajawal', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-dark-700/40 backdrop-blur-xl border border-white/5 rounded-2xl;
+  }
+
+  .glass-card-hover {
+    @apply glass-card hover:bg-dark-700/60 hover:border-healix-500/20 transition-all duration-300;
+  }
+
+  .gradient-border {
+    position: relative;
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(16, 185, 129, 0.1));
+    border: 1px solid transparent;
+    background-clip: padding-box;
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.3), rgba(16, 185, 129, 0.3));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-healix-400 to-emerald-400 bg-clip-text text-transparent;
+  }
+
+  .text-gradient-secondary {
+    @apply bg-gradient-to-r from-violet-400 to-healix-400 bg-clip-text text-transparent;
+  }
+
+  .btn-primary {
+    @apply relative px-6 py-3 bg-gradient-to-r from-healix-500 to-emerald-500 
+           text-white font-semibold rounded-xl shadow-lg shadow-healix-500/25 
+           hover:shadow-healix-500/40 hover:scale-[1.02] active:scale-[0.98]
+           transition-all duration-200 overflow-hidden;
+  }
+
+  .btn-primary::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-healix-400 to-emerald-400 opacity-0 
+           hover:opacity-100 transition-opacity duration-200;
+    z-index: -1;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-dark-600/80 backdrop-blur border border-white/10 
+           text-white font-medium rounded-xl hover:bg-dark-500/80 
+           hover:border-healix-500/30 active:scale-[0.98]
+           transition-all duration-200;
+  }
+
+  .btn-danger {
+    @apply px-6 py-3 bg-gradient-to-r from-rose-500 to-red-500 
+           text-white font-semibold rounded-xl shadow-lg shadow-rose-500/25 
+           hover:shadow-rose-500/40 hover:scale-[1.02] active:scale-[0.98]
+           transition-all duration-200;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 bg-dark-700/60 backdrop-blur border border-white/10 
+           rounded-xl text-white placeholder-gray-500 
+           focus:outline-none focus:ring-2 focus:ring-healix-500/50 focus:border-healix-500/50 
+           transition-all duration-200;
+  }
+
+  .stat-card {
+    @apply glass-card p-6 relative overflow-hidden;
+  }
+
+  .stat-card::before {
+    content: '';
+    @apply absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-healix-500 to-transparent 
+           opacity-0 transition-opacity duration-500;
+  }
+
+  .stat-card:hover::before {
+    @apply opacity-100;
+  }
+
+  .sidebar-link {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl text-gray-400 
+           hover:text-white hover:bg-dark-600/60 transition-all duration-200;
+  }
+
+  .sidebar-link-active {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl text-white 
+           bg-gradient-to-r from-healix-500/20 to-emerald-500/10 
+           border border-healix-500/20 shadow-lg shadow-healix-500/5;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-success {
+    @apply badge bg-emerald-500/20 text-emerald-400 border border-emerald-500/20;
+  }
+
+  .badge-warning {
+    @apply badge bg-amber-500/20 text-amber-400 border border-amber-500/20;
+  }
+
+  .badge-danger {
+    @apply badge bg-rose-500/20 text-rose-400 border border-rose-500/20;
+  }
+
+  .badge-info {
+    @apply badge bg-healix-500/20 text-healix-400 border border-healix-500/20;
+  }
+
+  .page-container {
+    @apply p-6 lg:p-8 space-y-6 max-w-[1600px] mx-auto;
+  }
+
+  .section-title {
+    @apply text-2xl font-bold text-white;
+  }
+
+  .section-subtitle {
+    @apply text-gray-400 text-sm mt-1;
+  }
+
+  .mesh-bg {
+    background: 
+      radial-gradient(ellipse at 10% 20%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(16, 185, 129, 0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(139, 92, 246, 0.04) 0%, transparent 50%);
+  }
+
+  .progress-bar {
+    @apply h-2 rounded-full bg-dark-600 overflow-hidden;
+  }
+
+  .progress-bar-fill {
+    @apply h-full rounded-full bg-gradient-to-r from-healix-500 to-emerald-500 transition-all duration-700 ease-out;
+  }
+
+  .floating-orb {
+    @apply absolute rounded-full blur-3xl opacity-20 animate-float pointer-events-none;
+  }
+
+  /* ── Landing Page Styles ── */
+  .hero-glow {
+    background: radial-gradient(circle at 50% 40%, rgba(6, 182, 212, 0.15) 0%, transparent 60%);
+  }
+
+  .feature-card {
+    @apply bg-dark-700/30 backdrop-blur-xl border border-white/5 rounded-3xl p-8
+           hover:border-healix-500/20 hover:bg-dark-700/50 transition-all duration-500;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px -15px rgba(6, 182, 212, 0.15);
+  }
+
+  .nav-glass {
+    @apply fixed top-0 left-0 right-0 z-50 backdrop-blur-2xl border-b border-white/5;
+    background: rgba(10, 14, 26, 0.8);
+  }
+
+  .gradient-text-hero {
+    background: linear-gradient(135deg, #67e8f9 0%, #06b6d4 30%, #10b981 70%, #34d399 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .btn-outline-glow {
+    @apply px-8 py-4 rounded-2xl font-semibold border-2 border-healix-500/40 text-healix-400
+           hover:bg-healix-500/10 hover:border-healix-500/60 hover:shadow-lg hover:shadow-healix-500/20
+           active:scale-[0.98] transition-all duration-300;
+  }
+
+  .pulse-ring {
+    animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse-ring {
+    0%, 100% { transform: scale(1); opacity: 0.4; }
+    50% { transform: scale(1.15); opacity: 0.1; }
+  }
+
+  .exercise-figure {
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .glow-line {
+    background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.6), transparent);
+    animation: glow-slide 3s ease-in-out infinite;
+  }
+
+  @keyframes glow-slide {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  .counter-up {
+    animation: counter-fade 0.6s ease-out forwards;
+  }
+
+  @keyframes counter-fade {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+}
+
+  /* ═══════════════════════════════════════════════════════
+     ██  3D HOLOGRAM SYSTEM  ██
+     ═══════════════════════════════════════════════════════ */
+
+  /* ── Hologram Card ── */
+  .holo-card {
+    @apply relative overflow-hidden rounded-2xl;
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.05), rgba(16, 185, 129, 0.03), rgba(139, 92, 246, 0.03));
+    border: 1px solid rgba(6, 182, 212, 0.12);
+    backdrop-filter: blur(20px);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .holo-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      transparent 20%,
+      rgba(6, 182, 212, 0.06) 40%,
+      rgba(16, 185, 129, 0.04) 60%,
+      transparent 80%
+    );
+    opacity: 0;
+    transition: opacity 0.5s;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .holo-card:hover::before {
+    opacity: 1;
+  }
+
+  .holo-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+      from 0deg,
+      transparent 0%,
+      rgba(6, 182, 212, 0.08) 10%,
+      transparent 20%,
+      rgba(16, 185, 129, 0.06) 30%,
+      transparent 40%,
+      rgba(139, 92, 246, 0.06) 50%,
+      transparent 60%
+    );
+    animation: holo-rotate 8s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .holo-card:hover {
+    border-color: rgba(6, 182, 212, 0.2);
+    box-shadow:
+      0 0 15px rgba(6, 182, 212, 0.06),
+      0 0 40px rgba(6, 182, 212, 0.03);
+  }
+
+  /* ── Hologram Scan Line ── */
+  .holo-scan {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .holo-scan::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(6, 182, 212, 0.35),
+      rgba(16, 185, 129, 0.25),
+      transparent
+    );
+    animation: holo-scan-down 5s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* ── Hologram Grid Overlay ── */
+  .holo-grid {
+    position: relative;
+  }
+
+  .holo-grid::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(6, 182, 212, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(6, 182, 212, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.5s;
+    border-radius: inherit;
+  }
+
+  .holo-grid:hover::before {
+    opacity: 1;
+  }
+
+  /* ── Hologram Glow Border ── */
+  .holo-border {
+    position: relative;
+    border: 1px solid transparent;
+  }
+
+  .holo-border::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      var(--holo-angle, 135deg),
+      rgba(6, 182, 212, 0.4),
+      rgba(16, 185, 129, 0.2),
+      rgba(139, 92, 246, 0.3),
+      rgba(6, 182, 212, 0.4)
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: holo-border-spin 6s linear infinite;
+    pointer-events: none;
+  }
+
+  /* ── Holographic Flicker Text ── */
+  .holo-text {
+    background: linear-gradient(
+      90deg,
+      #06b6d4 0%,
+      #10b981 25%,
+      #8b5cf6 50%,
+      #06b6d4 75%,
+      #10b981 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: holo-text-shift 4s linear infinite;
+  }
+
+  /* ── 3D Floating Element ── */
+  .holo-float {
+    animation: holo-float 6s ease-in-out infinite;
+    transform-style: preserve-3d;
+  }
+
+  /* ── Hologram Pulse Ring ── */
+  .holo-pulse {
+    position: relative;
+  }
+
+  .holo-pulse::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: inherit;
+    border: 1px solid rgba(6, 182, 212, 0.3);
+    animation: holo-pulse-ring 3s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  /* ── Hologram Stat Card (enhanced) ── */
+  .holo-stat {
+    @apply relative overflow-hidden rounded-2xl p-6;
+    background: linear-gradient(145deg, rgba(15, 22, 41, 0.8), rgba(21, 29, 53, 0.6));
+    border: 1px solid rgba(6, 182, 212, 0.08);
+    backdrop-filter: blur(24px);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .holo-stat::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--holo-color, #06b6d4), transparent);
+    opacity: 0.5;
+  }
+
+  .holo-stat::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(6, 182, 212, 0.02) 0%,
+      transparent 40%,
+      transparent 60%,
+      rgba(6, 182, 212, 0.01) 100%
+    );
+    pointer-events: none;
+  }
+
+  .holo-stat:hover {
+    border-color: rgba(6, 182, 212, 0.25);
+    transform: translateY(-4px) scale(1.01);
+    box-shadow:
+      0 10px 40px -10px rgba(6, 182, 212, 0.15),
+      0 0 0 1px rgba(6, 182, 212, 0.1);
+  }
+
+  /* ── Hologram Chart Container ── */
+  .holo-chart {
+    @apply relative rounded-2xl overflow-hidden;
+    background: linear-gradient(145deg, rgba(15, 22, 41, 0.7), rgba(21, 29, 53, 0.5));
+    border: 1px solid rgba(6, 182, 212, 0.08);
+    backdrop-filter: blur(20px);
+  }
+
+  .holo-chart::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.4), rgba(16, 185, 129, 0.3), transparent);
+  }
+
+  .holo-chart::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.3), transparent);
+    animation: holo-scan-line 3s ease-in-out infinite;
+  }
+
+  /* ── Hologram Badge ── */
+  .holo-badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium;
+    background: rgba(6, 182, 212, 0.08);
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    color: #67e8f9;
+    text-shadow: 0 0 10px rgba(6, 182, 212, 0.3);
+    animation: holo-badge-glow 3s ease-in-out infinite;
+  }
+
+  /* ── 3D Perspective Container ── */
+  .perspective-container {
+    perspective: 1200px;
+    transform-style: preserve-3d;
+  }
+
+  .perspective-child {
+    transform-style: preserve-3d;
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .perspective-child:hover {
+    transform: rotateX(2deg) rotateY(-2deg) translateZ(10px);
+  }
+
+  /* ── Hologram Data Stream ── */
+  .holo-datastream {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .holo-datastream::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(6, 182, 212, 0.04),
+      rgba(16, 185, 129, 0.03),
+      transparent
+    );
+    animation: holo-data-flow 5s linear infinite;
+    pointer-events: none;
+  }
+
+  /* ── Hologram Ring / Orbit ── */
+  .holo-ring {
+    position: absolute;
+    border: 1px solid rgba(6, 182, 212, 0.15);
+    border-radius: 50%;
+    animation: holo-orbit 12s linear infinite;
+  }
+
+  .holo-ring-fast {
+    position: absolute;
+    border: 1px dashed rgba(16, 185, 129, 0.12);
+    border-radius: 50%;
+    animation: holo-orbit 8s linear infinite reverse;
+  }
+
+  /* ── Hologram Corner Accents ── */
+  .holo-corners {
+    position: relative;
+  }
+
+  .holo-corners::before,
+  .holo-corners::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+    opacity: 0.4;
+    transition: opacity 0.3s;
+  }
+
+  .holo-corners::before {
+    top: -1px;
+    left: -1px;
+    border-top: 2px solid #06b6d4;
+    border-left: 2px solid #06b6d4;
+    border-top-left-radius: 8px;
+  }
+
+  .holo-corners::after {
+    bottom: -1px;
+    right: -1px;
+    border-bottom: 2px solid #10b981;
+    border-right: 2px solid #10b981;
+    border-bottom-right-radius: 8px;
+  }
+
+  .holo-corners:hover::before,
+  .holo-corners:hover::after {
+    opacity: 0.8;
+  }
+
+
+/* ═══════════════════════════════════════════════════════
+   ██  HOLOGRAM KEYFRAME ANIMATIONS  ██
+   ═══════════════════════════════════════════════════════ */
+
+@keyframes holo-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes holo-scan-down {
+  0% { top: -2px; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@keyframes holo-scan-line {
+  0%, 100% { transform: scaleX(0.3); opacity: 0.3; }
+  50% { transform: scaleX(1); opacity: 0.8; }
+}
+
+@keyframes holo-border-spin {
+  from { --holo-angle: 0deg; }
+  to { --holo-angle: 360deg; }
+}
+
+@property --holo-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes holo-text-shift {
+  from { background-position: 0% center; }
+  to { background-position: 200% center; }
+}
+
+@keyframes holo-float {
+  0%, 100% {
+    transform: translateY(0) rotateX(0deg) rotateY(0deg);
+  }
+  25% {
+    transform: translateY(-8px) rotateX(2deg) rotateY(1deg);
+  }
+  50% {
+    transform: translateY(-4px) rotateX(0deg) rotateY(-1deg);
+  }
+  75% {
+    transform: translateY(-10px) rotateX(-1deg) rotateY(2deg);
+  }
+}
+
+@keyframes holo-pulse-ring {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.3;
+    border-color: rgba(6, 182, 212, 0.3);
+  }
+  50% {
+    transform: scale(1.04);
+    opacity: 0.1;
+    border-color: rgba(16, 185, 129, 0.2);
+  }
+}
+
+@keyframes holo-badge-glow {
+  0%, 100% { box-shadow: 0 0 6px rgba(6, 182, 212, 0.15); }
+  50% { box-shadow: 0 0 14px rgba(6, 182, 212, 0.3); }
+}
+
+@keyframes holo-data-flow {
+  from { left: -50%; }
+  to { left: 150%; }
+}
+
+@keyframes holo-orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes holo-flicker {
+  0%, 100% { opacity: 1; }
+  92% { opacity: 1; }
+  93% { opacity: 0.7; }
+  94% { opacity: 1; }
+  96% { opacity: 0.8; }
+  97% { opacity: 1; }
+}
+
+@keyframes holo-glitch {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-1px, 1px); }
+  40% { transform: translate(1px, -1px); }
+  60% { transform: translate(-1px, 0); }
+  80% { transform: translate(1px, 1px); }
+}
+
+@keyframes holo-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes holo-circle-dash {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: -20; }
+}
+
+@layer utilities {
+  .animation-delay-150 {
+    animation-delay: 150ms;
+  }
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+  .animation-delay-700 {
+    animation-delay: 700ms;
+  }
+  .holo-delay-1 { animation-delay: 0.5s; }
+  .holo-delay-2 { animation-delay: 1s; }
+  .holo-delay-3 { animation-delay: 1.5s; }
+  .holo-delay-4 { animation-delay: 2s; }
+}

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="healix-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06b6d4"/>
+      <stop offset="100%" style="stop-color:#10b981"/>
+    </linearGradient>
+  </defs>
+  <circle cx="32" cy="32" r="30" fill="url(#healix-grad)" opacity="0.15"/>
+  <path d="M32 8C18.745 8 8 18.745 8 32s10.745 24 24 24 24-10.745 24-24S45.255 8 32 8z" stroke="url(#healix-grad)" stroke-width="2" fill="none"/>
+  <path d="M22 32h8v-10M30 32h12M30 32v10" stroke="url(#healix-grad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <circle cx="22" cy="32" r="2" fill="#06b6d4"/>
+  <circle cx="42" cy="32" r="2" fill="#10b981"/>
+  <circle cx="30" cy="22" r="2" fill="#06b6d4"/>
+  <circle cx="30" cy="42" r="2" fill="#10b981"/>
+  <path d="M16 28l4 4-4 4" stroke="#06b6d4" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.5"/>
+  <path d="M48 28l-4 4 4 4" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.5"/>
+</svg>

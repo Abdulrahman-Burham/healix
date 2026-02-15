@@ -1,0 +1,181 @@
+{
+  "device": {
+    "name": "Samsung Galaxy Watch 5",
+    "type": "smartwatch",
+    "firmware": "5.2.1"
+  },
+  "user": {
+    "age": 28,
+    "gender": "male",
+    "weight_kg": 78,
+    "height_cm": 175
+  },
+  "vitals": [
+    {
+      "timestamp": "2026-02-15T08:00:00Z",
+      "heart_rate": 72,
+      "hrv": 45,
+      "blood_pressure_systolic": 120,
+      "blood_pressure_diastolic": 80,
+      "oxygen_saturation": 98,
+      "body_temperature": 36.6,
+      "steps": 0,
+      "calories_burned": 85,
+      "active_minutes": 0,
+      "stress_level": 3,
+      "sleep_hours": 7.5,
+      "sleep_quality": "good"
+    },
+    {
+      "timestamp": "2026-02-15T09:00:00Z",
+      "heart_rate": 78,
+      "hrv": 42,
+      "blood_pressure_systolic": 122,
+      "blood_pressure_diastolic": 81,
+      "oxygen_saturation": 97,
+      "body_temperature": 36.7,
+      "steps": 1200,
+      "calories_burned": 120,
+      "active_minutes": 15,
+      "stress_level": 4,
+      "sleep_hours": null,
+      "sleep_quality": null
+    },
+    {
+      "timestamp": "2026-02-15T10:00:00Z",
+      "heart_rate": 85,
+      "hrv": 38,
+      "blood_pressure_systolic": 125,
+      "blood_pressure_diastolic": 83,
+      "oxygen_saturation": 97,
+      "body_temperature": 36.8,
+      "steps": 3400,
+      "calories_burned": 210,
+      "active_minutes": 30,
+      "stress_level": 5,
+      "sleep_hours": null,
+      "sleep_quality": null
+    },
+    {
+      "timestamp": "2026-02-15T11:00:00Z",
+      "heart_rate": 110,
+      "hrv": 30,
+      "blood_pressure_systolic": 135,
+      "blood_pressure_diastolic": 88,
+      "oxygen_saturation": 96,
+      "body_temperature": 37.1,
+      "steps": 5600,
+      "calories_burned": 380,
+      "active_minutes": 45,
+      "stress_level": 6,
+      "sleep_hours": null,
+      "sleep_quality": null
+    },
+    {
+      "timestamp": "2026-02-15T12:00:00Z",
+      "heart_rate": 95,
+      "hrv": 35,
+      "blood_pressure_systolic": 128,
+      "blood_pressure_diastolic": 84,
+      "oxygen_saturation": 97,
+      "body_temperature": 36.9,
+      "steps": 6800,
+      "calories_burned": 450,
+      "active_minutes": 50,
+      "stress_level": 5,
+      "sleep_hours": null,
+      "sleep_quality": null
+    },
+    {
+      "timestamp": "2026-02-15T14:00:00Z",
+      "heart_rate": 80,
+      "hrv": 40,
+      "blood_pressure_systolic": 121,
+      "blood_pressure_diastolic": 79,
+      "oxygen_saturation": 98,
+      "body_temperature": 36.7,
+      "steps": 7500,
+      "calories_burned": 520,
+      "active_minutes": 55,
+      "stress_level": 4,
+      "sleep_hours": null,
+      "sleep_quality": null
+    },
+    {
+      "timestamp": "2026-02-15T17:00:00Z",
+      "heart_rate": 130,
+      "hrv": 25,
+      "blood_pressure_systolic": 142,
+      "blood_pressure_diastolic": 90,
+      "oxygen_saturation": 95,
+      "body_temperature": 37.4,
+      "steps": 9200,
+      "calories_burned": 680,
+      "active_minutes": 80,
+      "stress_level": 7,
+      "sleep_hours": null,
+      "sleep_quality": null
+    },
+    {
+      "timestamp": "2026-02-15T19:00:00Z",
+      "heart_rate": 75,
+      "hrv": 43,
+      "blood_pressure_systolic": 118,
+      "blood_pressure_diastolic": 78,
+      "oxygen_saturation": 98,
+      "body_temperature": 36.6,
+      "steps": 10500,
+      "calories_burned": 750,
+      "active_minutes": 85,
+      "stress_level": 3,
+      "sleep_hours": null,
+      "sleep_quality": null
+    },
+    {
+      "timestamp": "2026-02-15T22:00:00Z",
+      "heart_rate": 65,
+      "hrv": 50,
+      "blood_pressure_systolic": 115,
+      "blood_pressure_diastolic": 75,
+      "oxygen_saturation": 98,
+      "body_temperature": 36.4,
+      "steps": 11200,
+      "calories_burned": 820,
+      "active_minutes": 88,
+      "stress_level": 2,
+      "sleep_hours": null,
+      "sleep_quality": null
+    }
+  ],
+  "weekly_summary": {
+    "avg_heart_rate": 88,
+    "avg_hrv": 38,
+    "avg_spo2": 97.1,
+    "total_steps": 68400,
+    "total_calories": 5840,
+    "avg_sleep_hours": 7.2,
+    "avg_stress": 4.3,
+    "active_days": 6,
+    "workout_sessions": 4
+  },
+  "workouts": [
+    {
+      "date": "2026-02-15T17:00:00Z",
+      "type": "strength_training",
+      "duration_minutes": 55,
+      "calories_burned": 420,
+      "avg_heart_rate": 128,
+      "max_heart_rate": 158,
+      "exercises": ["Shoulder Press", "Chest Press", "Hack Squat", "Lateral Raises"]
+    },
+    {
+      "date": "2026-02-13T07:30:00Z",
+      "type": "cardio",
+      "duration_minutes": 30,
+      "calories_burned": 280,
+      "avg_heart_rate": 145,
+      "max_heart_rate": 168,
+      "exercises": ["Running", "Jump Rope"]
+    }
+  ]
+}
